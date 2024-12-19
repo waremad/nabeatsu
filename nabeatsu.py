@@ -3,10 +3,6 @@
     #４桁ごとに区切るってリストで返す関数
     #４桁を半角カタカナに変換する関数
 """
-    ten = ["","ﾏﾝ","ｵｸ","ﾁｮｳ","ｹｲ",
-           "ｶﾞｲ","ｼﾞｮ","ｼﾞｮｳ","ｺｳ","ｶﾝ",
-           "ｾｲ","ｻｲ","ｺﾞｸ","ｺﾞｳｶﾞｼｬ","ｱｿｳｷﾞ",
-           "ﾅﾕﾀ","ﾌｶｼｷﾞ","ﾑﾘｮｳﾀｲｽｳ"]
 """
            
 def cut4(self):#４桁ごとに区切るってリストで返す関数
@@ -22,7 +18,7 @@ def cut4(self):#４桁ごとに区切るってリストで返す関数
         out.append(int(self[m:n]))
         m = n
         n += 4
-    return out
+    return out[::-1]
 
 def halfkana4(self,bottom=False,tyokei=False):#4=>ｼ,7=>ｼﾁ
     out = []
@@ -84,5 +80,27 @@ def halfkana4(self,bottom=False,tyokei=False):#4=>ｼ,7=>ｼﾁ
             out.append("ｲﾁ")
     return "".join(out)
 
-def allkana(self):
-    pass
+def allkana(self):#数字を半角カタカナに変換する
+    self = cut4(self)
+    out = []
+    ten = ["","ﾏﾝ","ｵｸ","ﾁｮｳ","ｹｲ",
+           "ｶﾞｲ","ｼﾞｮ","ｼﾞｮｳ","ｺｳ","ｶﾝ",
+           "ｾｲ","ｻｲ","ｺﾞｸ","ｺﾞｳｶﾞｼｬ","ｱｿｳｷﾞ",
+           "ﾅﾕﾀ","ﾌｶｼｷﾞ","ﾑﾘｮｳﾀｲｽｳ"]
+    for i in range(len(self)):
+        if len(self) == 1:
+            bottom = True
+        elif i == 0 and self[i] != 0:
+            bottom = True 
+        else:
+            bottom = False
+        tyokei = i in [3,4]
+        out.append(halfkana4(self[i],bottom,tyokei)+ten[i])
+    return "".join(out[::-1])+"ｯ"
+
+
+for i in range(1,100):
+    if i%3 == 0 or "3" in str(i):
+        print(allkana(i))
+    else:
+        print(i)

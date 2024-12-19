@@ -2,9 +2,9 @@ from nabeatsu import *
 
 def test_cut4():
     assert cut4(0) == [0]
-    assert cut4(10000) == [1,0]
-    assert cut4(123456) == [12,3456]
-    assert cut4(12000345678000) == [12,3,4567,8000]
+    assert cut4(10000) == [0,1]
+    assert cut4(123456) == [3456,12]
+    assert cut4(12000345678000) == [8000,4567,3,12]
 
 def test_halfkana4():
     assert halfkana4(0) == ""
@@ -82,36 +82,36 @@ def test_halfkana4():
     assert halfkana4(3000,tyokei=True) == "ｻﾝｾﾞﾝ"
     assert halfkana4(3333,tyokei=True) == "ｻﾝｾﾞﾝｻﾝﾋﾞｬｸｻﾝｼﾞｭｳｻﾝ"
     assert halfkana4(9999,tyokei=True) == "ｷｭｳｾﾝｷｭｳﾋｬｸｷｭｳｼﾞｭｳｷｭｳ"
-"""
+
 def test_allkana():
-    assert allkana(0) == "ｾﾞﾛ"
-    assert allkana(1) == "ｲﾁ"
-    assert allkana(2) == "ﾆ"
-    assert allkana(3) == "ｻﾝ"
-    assert allkana(4) == "ｼ"
-    assert allkana(5) == "ｺﾞ"
-    assert allkana(6) == "ﾛｸ"
-    assert allkana(7) == "ｼﾁ"
-    assert allkana(8) == "ﾊﾁ"
-    assert allkana(9) == "ｷｭｳ"
-    assert allkana(10) == "ｼﾞｭｳ"
-    assert allkana(12) == "ｼﾞｭｳﾆ"
-    assert allkana(27) == "ﾆｼﾞｭｳｼﾁ"
-    assert allkana(57) == "ｺﾞｼﾞｭｳｼﾁ"
-    assert allkana(100) == "ﾋｬｸ"
-    assert allkana(120) == "ﾋｬｸﾆｼﾞｭｳ"
-    assert allkana(333) == "ｻﾝﾋﾞｬｸｻﾝｼﾞｭｳｻﾝ"
-    assert allkana(600) == "ﾛｯﾋﾟｬｸ"
-    assert allkana(800) == "ﾊｯﾋﾟｬｸ"
-    assert allkana(1000) == "ｾﾝ"
-    assert allkana(1729) == "ｾﾝﾅﾅﾋｬｸﾆｼﾞｭｳｷｭｳ"
-    assert allkana(2000) == "ﾆｾﾝ"
-    assert allkana(3000) == "ｻﾝｾﾞﾝ"
-    assert allkana(3333) == "ｻﾝｾﾞﾝｻﾝﾋﾞｬｸｻﾝｼﾞｭｳｻﾝ"
-    assert allkana(4444) == "ﾖﾝｾﾝﾖﾝﾋｬｸﾖﾝｼﾞｭｳｼ"
-    assert allkana(7777) == "ﾅﾅｾﾝﾅﾅﾋｬｸﾅﾅｼﾞｭｳｼﾁ"
-    assert allkana(8888) == "ﾊｯｾﾝﾊｯﾋﾟｬｸﾊﾁｼﾞｭｳﾊﾁ"
-    assert allkana(9999) == "ｷｭｳｾﾝｷｭｳﾋｬｸｷｭｳｼﾞｭｳｷｭｳ"
-    assert allkana(19800) == "ｲﾁﾏﾝｷｭｳｾﾝﾊｯﾋﾟｬｸ"
-    assert allkana(101) == "ﾆ"
-"""
+    assert allkana(0) == "ｾﾞﾛｯ"
+    assert allkana(1) == "ｲﾁｯ"
+    assert allkana(2) == "ﾆｯ"
+    assert allkana(3) == "ｻﾝｯ"
+    assert allkana(4) == "ｼｯ"
+    assert allkana(5) == "ｺﾞｯ"
+    assert allkana(6) == "ﾛｸｯ"
+    assert allkana(7) == "ｼﾁｯ"
+    assert allkana(8) == "ﾊﾁｯ"
+    assert allkana(9) == "ｷｭｳｯ"
+    assert allkana(10) == "ｼﾞｭｳｯ"
+    assert allkana(12) == "ｼﾞｭｳﾆｯ"
+    assert allkana(27) == "ﾆｼﾞｭｳｼﾁｯ"
+    assert allkana(57) == "ｺﾞｼﾞｭｳｼﾁｯ"
+    assert allkana(100) == "ﾋｬｸｯ"
+    assert allkana(120) == "ﾋｬｸﾆｼﾞｭｳｯ"
+    assert allkana(333) == "ｻﾝﾋﾞｬｸｻﾝｼﾞｭｳｻﾝｯ"
+    assert allkana(600) == "ﾛｯﾋﾟｬｸｯ"
+    assert allkana(800) == "ﾊｯﾋﾟｬｸｯ"
+    assert allkana(1000) == "ｾﾝｯ"
+    assert allkana(1729) == "ｾﾝﾅﾅﾋｬｸﾆｼﾞｭｳｷｭｳｯ"
+    assert allkana(2000) == "ﾆｾﾝｯ"
+    assert allkana(3000) == "ｻﾝｾﾞﾝｯ"
+    assert allkana(3333) == "ｻﾝｾﾞﾝｻﾝﾋﾞｬｸｻﾝｼﾞｭｳｻﾝｯ"
+    assert allkana(4444) == "ﾖﾝｾﾝﾖﾝﾋｬｸﾖﾝｼﾞｭｳｼｯ"
+    assert allkana(7777) == "ﾅﾅｾﾝﾅﾅﾋｬｸﾅﾅｼﾞｭｳｼﾁｯ"
+    assert allkana(8888) == "ﾊｯｾﾝﾊｯﾋﾟｬｸﾊﾁｼﾞｭｳﾊﾁｯ"
+    assert allkana(9999) == "ｷｭｳｾﾝｷｭｳﾋｬｸｷｭｳｼﾞｭｳｷｭｳｯ"
+    assert allkana(19800) == "ｲﾁﾏﾝｷｭｳｾﾝﾊｯﾋﾟｬｸｯ"
+    assert allkana(1010000) == "ﾋｬｸｲﾁﾏﾝｯ"
+
